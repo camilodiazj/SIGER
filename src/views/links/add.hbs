@@ -1,0 +1,51 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/links/add" method="POST" enctype="multipart/form-data">
+                        <div class="form-group ">
+                            <div class="form-group">
+                                <select class="browser-default custom-select" name="request" id="request"
+                                    class="required">
+                                    <option value="default">Tipo de solicitud</option>
+                                    <option value="Solicitud por asignaturas">Solicitud por asignaturas</option>
+                                    <option value="Solicitud por numero de creditos">Solicitud por numero de creditos
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select value="" class="browser-default custom-select" name="program" id="program">
+                                    <option value="0">Selecciona el programa</option>
+                                    {{#each program}}
+                                    <option value="{{ id }}">{{ name }}</option>
+                                    {{/each}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select class="browser-default custom-select" name="subject" id="subject">
+                                    <option value="default">Materia</option>
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea maxlength="100"  name="description" rows="2" class="form-control" placeholder="Descripción"
+                                    id="description"></textarea>
+                            </div>
+                            <div class="container p-4">
+                                <input type="file" name="file">
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-block" id="btn">
+                                    Crear
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/script.js"></script>

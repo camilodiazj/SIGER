@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img src="/../img/LogoUTADEOhorizontal.png" width="130" height="30" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        {{#if user }}
+        {{#registerHelper user.user_mode "COMITE"}}
+        <li class="nav-item">
+          <a href="/links/requests" class="nav-link">Solicitudes</a>
+        </li>
+
+        {{/registerHelper}}
+
+        {{#registerHelper user.user_mode "ESTUDIANTE"}}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Solicitudes
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/links">Todas las solicitudes</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/links/add">Agregar solicitud</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="/profile" class="nav-link">Perfil</a>
+        </li>
+        {{/registerHelper}}
+        <li class="nav-item">
+          <a href="/logout" class="nav-link">Cerrar Sesion</a>
+        </li>
+        {{#registerHelper user.user_mode "ADMINISTRADOR"}}
+        <li class="nav-item">
+          <a href="/links/requests" class="nav-link">Solicitudes</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Administrador
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/admin/users">Todos los usuarios</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/admin/report">Generar reporte</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/admin/load">Cargar bd</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/admin/reboot">Reiniciar bd</a>
+          </div>
+        </li>
+        {{/registerHelper}}
+        {{else}}
+        {{#if noReg}}
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#contact">Contacto</a>
+        </li>
+        {{/if}}
+        <li class="nav-item">
+          <a href="/signin" class="nav-link">Ingresar</a>
+        </li>
+        <li class="nav-item">
+          <a href="/signup" class="nav-link">Registrarse</a>
+        </li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>

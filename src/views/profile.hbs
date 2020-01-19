@@ -1,0 +1,74 @@
+<section class="pricing py-5">
+    <div class="container">
+        <div class="row">
+            {{#each udata}}
+            <h3>Bienvenido, {{name}}</h3>
+        </div>
+        <div class="row">
+            <i>
+                <h4>{{program}}</h4>
+            </i>
+        </div>
+        {{else}}
+        <p>usuario</p>
+        {{/each}}
+
+        <div class="row p-4">
+            <!-- Free Tier -->
+
+            <div class=" card FixedHeightContainer ">
+                <h5 class="card-title text-muted text-uppercase text-center">Solicitudes aprobadas</h5>
+                <h6 class="card text-center ">{{approve}} solicitud(es).</span></h6>
+                <div class="Content">
+                    <hr>
+                    {{#each approved_data}}
+                    <ul class="fa-ul">
+                        <li><span class="fa-li"><i class="fas fa-check"></i></span><b>{{title}}</b>
+                            ({{timeago created_at}}) </li>
+                    </ul>
+                    {{else}}
+                    <li><span class="fa-li"><i class="fas fa-check"></i></span>No hay solicitudes.</li>
+                    {{/each}}
+                </div>
+                <a href="/links" class="btn btn-block bg-success text-white text-uppercase">Ver</a>
+            </div>
+
+
+            <!-- Plus Tier -->
+            <div class=" card FixedHeightContainer ">
+                <h5 class="card-title text-muted text-uppercase text-center">Solicitudes rechazadas</h5>
+                <h6 class="card text-center ">{{denied}} solicitud(es).</span></h6>
+                <div class="Content">
+                    <hr>
+                    {{#each denied_data}}
+                    <ul class="fa-ul">
+                        <li><span class="fa-li"><i class="fas fa-check"></i></span><b>{{title}}</b>
+                            ({{timeago created_at}}) </li>
+                    </ul>
+                    {{else}}
+                    <li><span class="fa-li"><i class="fas fa-check"></i></span>No hay solicitudes.</li>
+                    {{/each}}
+                </div>
+                <a href="/links/add" class="btn btn-block btn-primary text-uppercase">Agregar</a>
+            </div>
+            <!-- Pro Tier -->
+            <div class=" card FixedHeightContainer ">
+                <h5 class="card-title text-muted text-uppercase text-center">Solicitudes en proceso</h5>
+                <h6 class="card text-center ">{{process}} solicitud(es).</span></h6>
+                <div class="Content">
+                    <hr>
+                    {{#each process_data}}
+                    <ul class="fa-ul">
+                        <li><span class="fa-li"><i class="fas fa-check"></i></span><b>{{title}}</b>
+                            ({{timeago created_at}}) </li>
+                    </ul>
+                    {{else}}
+                    <li><span class="fa-li"><i class="fas fa-check"></i></span>No hay solicitudes.</li>
+                    {{/each}}
+                </div>
+                <a href="/links/add" class="btn btn-block btn-primary text-uppercase">Agregar</a>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>

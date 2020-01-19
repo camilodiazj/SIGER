@@ -1,0 +1,104 @@
+<div class="container p-3"></div>
+<div class="container p-2 table-responsive">
+    <table class="table table-bordered" style="table-layout: fixed; width:100%" id="links">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Creación</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Adjunto</th>
+                <th scope="col">Edición</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each links}}
+            <tr>
+                <th scope="row">{{ id }}</th>
+                <td>{{ title }}</td>
+                <td>
+                    {{ description }}
+                </td>
+                <td>{{ timeago created_at }}</td>
+                <td>{{ status }}</td>
+                <td>
+                    <form action="/links/download/" method="POST">
+                        <div class="form-group" align="center">
+                            <input type="text" value="{{id}}" name="id" hidden>
+                            <input type="image" src="/img/DocumentIcon.png" class="rounded-circle w-50">
+                        </div>
+                    </form>
+                </td>
+                <td>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form action="/links/delete/" method="POST">
+                                <div class="form-group">
+                                    <input type="text" value="{{ file_name }}" name="file" hidden>
+                                    <input type="text" value="{{ id }}" name="id" hidden>
+                                    <script type="text/javascript">
+                                        function ConfirmDelete() {
+                                            var respuesta = confirm("¿Estas segur@ de eliminar esta solicitud?");
+                                            if (respuesta == true) {
+                                                return true;
+                                            }
+                                            else {
+                                                return false;
+                                            }
+                                        }
+                                    </script>
+                                    <button class="btn btn-danger" onclick="return ConfirmDelete()">Borrar</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="/links/edit/{{id}}" class="btn btn-secondary">Editar</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+<div class="container p-3"></div>
+
+<script>
+    $(document).ready(function () {
+        $('#links').dataTable({
+            "language": {
+                "lengthMenu": "Mostrar _MENU_ registros por pagina",
+                "zeroRecords": "No hay nada - Perdón",
+                "info": "Pagina _PAGE_ de _PAGES_",
+                "infoEmpty": "No hay registros disponibes",
+                "infoFiltered": "(filtrado de _MAX_ registros totales)",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+            "lengthMenu": [[5, 10, 50, -1], [5, 10, 50, "Todo"]],
+            columnDefs: [
+                { "width": "20px", "targets": [0] },
+                { "width": "170px", "targets": [1] },
+                { "width": "200px", "targets": [2] },
+                { "width": "90px", "targets": [3] },
+                { "width": "80px", "targets": [4] },
+                { "width": "", "targets": [5, 6] }
+            ],
+            "columns": [
+                { "orderData": [0, 1] },
+                { "orderData": 0, },
+                { "orderData": [2, 3, 4] },
+                null,
+                null
+            ]
+        });
+    });
+</script>

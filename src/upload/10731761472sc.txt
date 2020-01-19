@@ -1,0 +1,23 @@
+router.post('/signin', isNotLoggedIn, async (req, res, next) => {
+    const user_rows = await pool.query('SELECT user_mode FROM USERS WHERE username = ?', req.body.username);
+    const user = user_rows[0];
+    
+    
+    
+    if(user.user_mode == 'COMITE'){
+        req.flash('message','Usuario de tipo: '+user.user_mode);
+        passport.authenticate('local.signin', {
+            successRedirect: '/links',
+            failureRedirect: '/signin',
+            failureFlash: true
+        })(req, res, next); 
+    }else{
+        passport.authenticate('local.signin', {
+            successRedirect: '/profile',
+            failureRedirect: '/signin',
+            failureFlash: true
+        })(req, res, next); 
+    }; 
+
+
+});

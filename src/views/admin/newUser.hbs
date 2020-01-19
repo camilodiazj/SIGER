@@ -1,0 +1,41 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/admin/addNewUser" method="POST" enctype="multipart/form-data">
+                        <div class="form-group ">
+                            <div class="form-group">
+                                <select class="browser-default custom-select" name="request" id="request"
+                                    class="required">
+                                    <option value="default">Tipo de Usuario</option>
+                                    <option value="ESTUDIANTE">1. Estudiante</option>
+                                    <option value="COMITE">2. Comité</option>
+                                    <option value="ADMINISTRADOR">3. Administrador</option>
+                                </select>
+                            </div>
+                            <div class="form-group" class="required">
+                                <input type="text" class="form-control" placeholder="Nombres" id="name" name="name">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Apellidos" id="last_name" name="last_name"> 
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Identificación" id="idUser" name="idUser">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Correo Institucional" id="email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-block" id="btn">
+                                    Crear
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/script.js"></script>

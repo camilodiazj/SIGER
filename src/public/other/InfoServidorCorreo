@@ -1,0 +1,8 @@
+User 
+    forgotpass
+
+password
+    ForgotP4ssSiger
+
+
+sudo iptables -A INPUT -p tcp -m tcp --dport 4000 -j ACCEPT

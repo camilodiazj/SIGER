@@ -1,0 +1,239 @@
+<div class="container p-4">
+    <div class="row p-1">
+        <div class="col-md-12 mx-auto">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3>Carga plan de estudio</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 mx-auto">
+                            <div class="container p-1">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Programa</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <form action="/admin/download/" method="POST">
+                                                    <div class="form-group">
+                                                        <input type="text" value="InstruccionesCargPrograma.docx"
+                                                            name="fileName" hidden>
+                                                        <input type="image" src="/img/DocumentIcon.png"
+                                                            class="rounded-circle w-50">
+                                                    </div>
+                                                </form>
+                                                <h6>Instrucciones</h6>
+                                            </div>
+                                            <div class="col">
+                                                <form action="/admin/download/" method="POST">
+                                                    <div class="form-group">
+                                                        <input type="text" value="PlantillaCargueProgramas.csv"
+                                                            name="fileName" hidden>
+                                                        <input type="image" src="/img/csvIcon.png"
+                                                            class="rounded-circle w-50">
+                                                    </div>
+                                                </form>
+                                                <h6>Plantilla</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <form action="/admin/load" method="POST" enctype="multipart/form-data">
+                                <p>Se hará el cargue de los disintos programas academicos</p>
+                                <input type="text" value="PROGRAM" name="tableName" hidden>
+                                <div class="container p-1 md-4" align="left">
+                                    <h6 align="left">Por favor seleccione el archivo a cargar</h6>
+                                    <input type="file" name="file">
+                                </div>
+                                <div class="form-group p-1">
+                                    <button class="btn btn-primary btn-block">
+                                        Cargar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-4 mx-auto">
+                            <div class="container p-1">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Materias</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <form action="/admin/download/" method="POST">
+                                                    <div class="form-group">
+                                                        <input type="text" value="InstruccionesCargMaterias.docx"
+                                                            name="fileName" hidden>
+                                                        <input type="image" src="/img/DocumentIcon.png"
+                                                            class="rounded-circle w-50">
+                                                    </div>
+                                                </form>
+                                                <h6>Instrucciones</h6>
+                                            </div>
+                                            <div class="col">
+                                                <form action="/admin/download/" method="POST">
+                                                    <div class="form-group">
+                                                        <input type="text" value="PlantillaCargueMaterias.csv"
+                                                            name="fileName" hidden>
+                                                        <input type="image" src="/img/csvIcon.png"
+                                                            class="rounded-circle w-50">
+                                                    </div>
+                                                </form>
+                                                <h6>Plantilla</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <form action="/admin/load" method="POST" enctype="multipart/form-data">
+                                <p>Se hará el cargue de las asignaturas que pertenecen a los programas academicos</p>
+                                <input type="text" value="SUBJECT" name="tableName" hidden>
+                                <div class="container p-1 md-4" align="left">
+                                    <h6 align="left">Por favor seleccione el archivo a cargar</h6>
+                                    <input type="file" name="file">
+                                </div>
+                                <div class="form-group p-1">
+                                    <button class="btn btn-primary btn-block">
+                                        Cargar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-4 mx-auto">
+                            <div class="container p-1">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Materias-Programa</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <form action="/admin/download/" method="POST">
+                                                    <div class="form-group">
+                                                        <input type="text"
+                                                            value="InstruccionesCargMaterias_Programa.docx"
+                                                            name="fileName" hidden>
+                                                        <input type="image" src="/img/DocumentIcon.png"
+                                                            class="rounded-circle w-50">
+                                                    </div>
+                                                </form>
+                                                <h6>Instrucciones</h6>
+                                            </div>
+                                            <div class="col">
+                                                <form action="/admin/download/" method="POST">
+                                                    <div class="form-group">
+                                                        <input type="text" value="PlantillaCargueMaterias_Programa.csv"
+                                                            name="fileName" hidden>
+                                                        <input type="image" src="/img/csvIcon.png"
+                                                            class="rounded-circle w-50">
+                                                    </div>
+                                                </form>
+                                                <h6>Plantilla</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <form action="/admin/load" method="POST" enctype="multipart/form-data">
+                                <p>Se hará el cargue de la relacion entre asignaturas y programas academicos</p>
+                                <input type="text" value="PROGRAM_SUBJECT" name="tableName" hidden>
+                                <div class="container p-1 md-4" align="left">
+                                    <h6 align="left">Por favor seleccione el archivo a cargar</h6>
+                                    <input type="file" name="file">
+                                </div>
+                                <div class="form-group p-1">
+                                    <button class="btn btn-primary btn-block">
+                                        Cargar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row p-1">
+        <div class="col-md-12 mx-auto">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3>Carga Usuarios</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mx-auto">
+                            <div class="container p-1">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <form action="/admin/download/" method="POST">
+                                                    <div class="form-group">
+                                                        <input type="text" value="InstruccionesCargUsuarios.docx"
+                                                            name="fileName" hidden>
+                                                        <input type="image" src="/img/DocumentIcon.png"
+                                                            class="rounded-circle w-50">
+                                                    </div>
+                                                </form>
+                                                <h6>Instrucciones</h6>
+                                            </div>
+                                            <div class="col">
+                                                <form action="/admin/download/" method="POST">
+                                                    <div class="form-group">
+                                                        <input type="text" value="PlantillaCargueUsuarios.csv"
+                                                            name="fileName" hidden>
+                                                        <input type="image" src="/img/csvIcon.png"
+                                                            class="rounded-circle w-50">
+                                                    </div>
+                                                </form>
+                                                <h6>Plantillas</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mx-auto">
+                            <h6>Recuerde:</h6>
+                            <p>El archivo debe estar en formato csv y el caracter de separacion debe ser coma</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 align="left">Por favor seleccione el archivo 1 a cargar</h6>
+                                    <form action="/admin/load" method="POST" enctype="multipart/form-data">
+                                        <input type="text" value="USERS" name="tableName" hidden>
+                                        <div class="container p-1" align="left">
+                                            <input type="file" name="file">
+                                        </div>
+                                        <div class="form-group p-1">
+                                            <button class="btn btn-primary btn-block">
+                                                Cargar
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 align="left">Por favor seleccione el archivo 2 a cargar</h6>
+                                    <form action="/admin/load" method="POST" enctype="multipart/form-data">
+                                        <input type="text" value="USER_PROGRAM" name="tableName" hidden>
+                                        <div class="container p-1" align="left">
+                                            <input type="file" name="file">
+                                        </div>
+                                        <div class="form-group p-1">
+                                            <button class="btn btn-primary btn-block">
+                                                Cargar
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
